@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; background: #f4f6fa; }
+nav { background: #005ada; color: white; padding: 1em; }
+nav button { margin-right: 1em; background: #fff; color: #005ada; border: none; border-radius: 4px; padding: 0.5em 1em; cursor: pointer; }
+nav button:hover { background: #e4e8ff; }
+.tab { margin: 2em; }
+label, input, button { margin: 0.5em; }
+pre { background: #222; color: #d9ffb5; padding: 1em; border-radius: 4px; overflow-x: auto; }
