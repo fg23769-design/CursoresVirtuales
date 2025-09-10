@@ -1,4 +1,3 @@
-# Felipe Garcia
 # CursoresVirtuales
 
 Aplicación de código abierto para crear y controlar cursores virtuales invisibles desde cualquier lenguaje, mediante una API universal.  
