@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CursoresVirtuales</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <button onclick="show('principal')">Principal</button>
+    <button onclick="show('codigo')">Código Fuente</button>
+    <button onclick="show('api')">API</button>
+    <button onclick="show('ayuda')">Ayuda</button>
+  </nav>
+  <section id="principal" class="tab">
+    <h1>Gestión de Cursores Virtuales</h1>
+    <label for="cantidad">Cantidad de cursores:</label>
+    <input type="number" id="cantidad" min="1" max="10" value="1">
+    <button onclick="crearCursores()">Crear</button>
+    <div id="estadoCursores"></div>
+  </section>
+  <section id="codigo" class="tab" style="display:none">
+    <h1>Código Fuente</h1>
+    <pre id="codigo-fuente"></pre>
+  </section>
+  <section id="api" class="tab" style="display:none">
+    <h1>API Universal</h1>
+    <div>
+      <b>Endpoint:</b> <code>POST /cursor</code><br>
+      <b>Parámetros:</b>
+      <ul>
+        <li><b>pid</b>: Identificador de proceso</li>
+        <li><b>accion</b>: 'mover' o 'click'</li>
+        <li><b>x, y</b>: Coordenadas (solo para mover)</li>
+      </ul>
+      <b>Ejemplo en Python:</b>
+      <pre>
+import requests
+requests.post("http://localhost:3001/cursor", json={
+  "pid": 1234,
+  "accion": "mover",
+  "x": 100, "y": 200
+})
+      </pre>
+      <b>Ejemplo en JavaScript:</b>
+      <pre>
+fetch("http://localhost:3001/cursor", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ pid: 1234, accion: "click" })
+});
+      </pre>
+    </div>
+  </section>
+  <section id="ayuda" class="tab" style="display:none">
+    <h1>Ayuda y Configuración</h1>
+    <p>
+      <b>¿Qué es CursoresVirtuales?</b><br>
+      Es una herramienta para crear y controlar cursores virtuales invisibles tipo hardware, útil para automatizaciones y pruebas.
+    </p>
+    <p>
+      <b>¿Cómo usar?</b><br>
+      Desde la pestaña principal puedes elegir cuántos cursores crear y ver su estado.<br>
+      Controla los cursores desde cualquier lenguaje usando la API documentada en la pestaña "API".
+    </p>
+  </section>
+  <script src="main.js"></script>
+</body>
+</html>
